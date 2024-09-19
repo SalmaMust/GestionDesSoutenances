@@ -1,0 +1,129 @@
+﻿@model IEnumerable<FinalProject.Models.PFE>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" />
+<script defer src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script defer src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script defer src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<script defer src="~/js/site.js"></script>
+<p></p>
+<h3>Liste des PFE</h3>
+
+<p>
+    <a class="badge badge-sm bg-gradient-primary " asp-action="Create">Create </a>
+</p>
+<div class="card-body px-0 pt-0 pb-2">
+    <div class="table-responsive p-0">
+        <table id="myTable" class="table table-striped align-items-center mb-0">
+    <thead>
+        <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                <div class="d-flex px-2">  
+                    @Html.DisplayNameFor(model => model.Titre)
+                    </div>
+            </th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                <div class="d-flex px-2">
+                    @Html.DisplayNameFor(model => model.Desc)
+                </div>
+
+            </th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                <div class="d-flex px-2">
+                    @Html.DisplayNameFor(model => model.DateD)
+                </div>
+
+            </th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                <div class="d-flex px-2">
+                    @Html.DisplayNameFor(model => model.DateF)
+                </div>
+
+            </th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                <div class="d-flex px-2">
+                    @Html.DisplayNameFor(model => model.Encadrant)
+                </div>
+
+            </th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                <div class="d-flex px-2">
+                @Html.DisplayNameFor(model => model.Societe)
+                </div>
+
+            </th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Actions </th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <div class="d-flex px-2">
+                        <p class="text-xs text-secondary mb-0">
+                @Html.DisplayFor(modelItem => item.Titre)
+                </p>
+                </div>
+            </td>
+            <td>
+                    <div class="d-flex px-2">
+                        <p class="text-xs text-secondary mb-0">
+                @Html.DisplayFor(modelItem => item.Desc)
+                        </p>
+                    </div>
+            </td>
+            <td>
+                    <div class="d-flex px-2">
+                        <p class="text-xs text-secondary mb-0">
+                @Html.DisplayFor(modelItem => item.DateD)
+                        </p>
+                    </div>
+            </td>
+            <td>
+                    <div class="d-flex px-2">
+                        <p class="text-xs text-secondary mb-0">
+                @Html.DisplayFor(modelItem => item.DateF)
+                        </p>
+                    </div>
+            </td>
+            <td>
+                    <div class="d-flex px-2">
+                        <p class="text-xs text-secondary mb-0">
+                @Html.DisplayFor(modelItem => item.Encadrant.NomPrenom)
+                        </p>
+                    </div>
+            </td>
+            <td>
+                    <div class="d-flex px-2">
+                        <p class="text-xs text-secondary mb-0">
+                @Html.DisplayFor(modelItem => item.Societe.Lib)
+                        </p>
+                    </div>
+            </td>
+            <td>
+                    <a class="badge badge-sm bg-gradient-success" asp-action="Edit" asp-route-id="@item.PFEID">Edit</a> |
+                    <a class="badge badge-sm bg-gradient-secondary" asp-action="Details" asp-route-id="@item.PFEID">Details</a> |
+                    <a class="badge badge-sm bg-gradient-danger" asp-action="Delete" asp-route-id="@item.PFEID">Delete</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+          
